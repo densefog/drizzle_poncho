@@ -13,7 +13,7 @@ defmodule Drizzle.Scheduler do
   @utc_offset Application.get_env(:drizzle, :utc_offset, 0)
 
   def start_link(_args) do
-    GenServer.start_link(__MODULE__, %{})
+    GenServer.start_link(__MODULE__, %{}, name: __MODULE__)
   end
 
   def init(state) do

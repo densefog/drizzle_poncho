@@ -1,6 +1,7 @@
 defmodule Drizzle.IO do
   @moduledoc """
   Module for communicating to IO, turning on zones, etc
+  State holds a reference to GPIO pins
   """
 
   use GenServer

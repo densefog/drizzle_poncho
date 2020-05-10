@@ -9,28 +9,38 @@ defmodule Drizzle.TodaysEvents do
   @available_watering_times Application.get_env(:drizzle, :available_watering_times, %{})
 
   def start_link(_args) do
-    GenServer.start_link(__MODULE__, [])
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 
   def init(state) do
     Logger.info("Initializing todays events")
-    Agent.start_link(fn -> [] end, name: __MODULE__)
 
     {:ok, state}
   end
 
   def update(today) do
-    Agent.update(__MODULE__, fn _state ->
-      calculate_start_stop_time(today)
-    end)
+    GenServer.call(__MODULE__, {:update, today})
   end
 
-  def reset do
-    Agent.update(__MODULE__, fn _state -> [] end)
+  def reset() do
+    GenServer.call(__MODULE__, :reset)
   end
 
   def current_state() do
-    Agent.get(__MODULE__, fn state -> state end)
+    GenServer.call(__MODULE__, :current_state)
+  end
+
+  def handle_call({:update, today}, _from, _state) do
+    state = calculate_start_stop_time(today)
+    {:reply, :ok, state}
+  end
+
+  def handle_call(:reset, _from, _state) do
+    {:reply, :ok, []}
+  end
+
+  def handle_call(:current_state, _from, state) do
+    {:reply, state, state}
   end
 
   defp calculate_start_stop_time(today) do
