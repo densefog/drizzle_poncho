@@ -1,0 +1,16 @@
+<h2>Sprinklers</h2>
+<h4>Powered by Raspberry Pi</h4>
+
+<form phx-change="validate" >
+  <%= for {_zone_number, zone} <- @zones do %>
+  <div class="slidecontainer">
+    Zone <%= zone.zone %>:
+    <input name="zone[<%=zone.zone%>]" type="range" min="0" max="60" value="<%= zone.minutes %>" class="slider" step="1">
+    &nbsp;Minutes: <span><%= zone.minutes %></span></p>
+  </div>
+<% end %>
+</form>
+
+<button phx-click="cancel_all">Cancel All</button>
+<button phx-click="set_to_full">Set to Full</button>
+<button phx-click="run_selected">Run Selected</button>
