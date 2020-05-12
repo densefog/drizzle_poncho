@@ -56,13 +56,19 @@ defmodule Drizzle.TodaysEvents do
 
     Enum.reduce(list, %{last_time: start_time, events: []}, fn {zone, _grp, duration}, acc ->
       new_start_event = {acc[:last_time], :on, zone}
-      duration = Kernel.trunc(duration * factor)
-      new_start = add_duration(acc[:last_time], duration)
-      acc = Map.put(acc, :last_time, new_start)
-      new_stop_event = {acc[:last_time], :off, zone}
-      new_stop = add_duration(acc[:last_time], 1)
-      acc = Map.put(acc, :last_time, new_stop)
-      update_in(acc[:events], &(&1 ++ [new_start_event, new_stop_event]))
+      # duration = Kernel.trunc(duration * factor)
+      case Kernel.trunc(duration * factor) do
+        duration when duration < 1 ->
+          acc
+
+        duration ->
+          new_start = add_duration(acc[:last_time], duration)
+          acc = Map.put(acc, :last_time, new_start)
+          new_stop_event = {acc[:last_time], :off, zone}
+          new_stop = add_duration(acc[:last_time], 1)
+          acc = Map.put(acc, :last_time, new_stop)
+          update_in(acc[:events], &(&1 ++ [new_start_event, new_stop_event]))
+      end
     end)
   end
 

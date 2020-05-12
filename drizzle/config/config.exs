@@ -29,11 +29,13 @@ config :drizzle,
   # watering times are defined as key {start_time, end_time}
   available_watering_times: %{
     # morning: {500, 700},
-    evening: {1545, 2300}
+    evening: {900, 2300}
   },
   # schedule is defined as {zone, watering_time_key, duration_in_minutes}
   schedule: %{
     sun: [
+      # {:zone1, :morning, 5},
+      # {:zone2, :morning, 5},
       {:zone1, :evening, 5},
       {:zone2, :evening, 5},
       {:zone3, :evening, 5},
@@ -61,13 +63,13 @@ config :drizzle,
       {:zone7, :evening, 5}
     ],
     wed: [
-      {:zone1, :evening, 1},
-      {:zone2, :evening, 1},
-      {:zone3, :evening, 1},
-      {:zone4, :evening, 1},
-      {:zone5, :evening, 1},
-      {:zone6, :evening, 1},
-      {:zone7, :evening, 1}
+      {:zone1, :evening, 5},
+      {:zone2, :evening, 5},
+      {:zone3, :evening, 5},
+      {:zone4, :evening, 5},
+      {:zone5, :evening, 5},
+      {:zone6, :evening, 5},
+      {:zone7, :evening, 5}
     ],
     thu: [
       {:zone1, :evening, 5},
