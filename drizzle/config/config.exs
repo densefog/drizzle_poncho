@@ -36,67 +36,67 @@ config :drizzle,
     sun: [
       # {:zone1, :morning, 5},
       # {:zone2, :morning, 5},
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 20},
+      {:zone2, :evening, 20},
+      {:zone3, :evening, 20},
+      {:zone4, :evening, 20},
+      {:zone5, :evening, 20},
+      {:zone6, :evening, 20},
+      {:zone7, :evening, 20}
     ],
     mon: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 0},
+      {:zone2, :evening, 0},
+      {:zone3, :evening, 0},
+      {:zone4, :evening, 0},
+      {:zone5, :evening, 0},
+      {:zone6, :evening, 0},
+      {:zone7, :evening, 0}
     ],
     tue: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 0},
+      {:zone2, :evening, 0},
+      {:zone3, :evening, 0},
+      {:zone4, :evening, 0},
+      {:zone5, :evening, 0},
+      {:zone6, :evening, 0},
+      {:zone7, :evening, 0}
     ],
     wed: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 20},
+      {:zone2, :evening, 20},
+      {:zone3, :evening, 20},
+      {:zone4, :evening, 20},
+      {:zone5, :evening, 20},
+      {:zone6, :evening, 20},
+      {:zone7, :evening, 20}
     ],
     thu: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 0},
+      {:zone2, :evening, 0},
+      {:zone3, :evening, 0},
+      {:zone4, :evening, 0},
+      {:zone5, :evening, 0},
+      {:zone6, :evening, 0},
+      {:zone7, :evening, 0}
     ],
     fri: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 20},
+      {:zone2, :evening, 20},
+      {:zone3, :evening, 20},
+      {:zone4, :evening, 20},
+      {:zone5, :evening, 20},
+      {:zone6, :evening, 20},
+      {:zone7, :evening, 20}
     ],
     sat: [
-      {:zone1, :evening, 5},
-      {:zone2, :evening, 5},
-      {:zone3, :evening, 5},
-      {:zone4, :evening, 5},
-      {:zone5, :evening, 5},
-      {:zone6, :evening, 5},
-      {:zone7, :evening, 5}
+      {:zone1, :evening, 2},
+      {:zone2, :evening, 2},
+      {:zone3, :evening, 2},
+      {:zone4, :evening, 2},
+      {:zone5, :evening, 2},
+      {:zone6, :evening, 2},
+      {:zone7, :evening, 2}
     ]
   }
 

@@ -9,7 +9,7 @@ defmodule Drizzle.TodaysEvents do
   @available_watering_times Application.get_env(:drizzle, :available_watering_times, %{})
 
   def start_link(_args) do
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
   end
 
   def init(state) do

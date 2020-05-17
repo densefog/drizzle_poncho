@@ -4,7 +4,11 @@ defmodule DrizzleUiWeb.ThermostatLive do
   alias DrizzleUi.ZoneManager
 
   def mount(_params, _session, socket) do
-    socket = assign(socket, zones: ZoneManager.new_zones())
+    socket =
+      socket
+      |> assign(zones: ZoneManager.new_zones())
+      |> assign(schedule: ZoneManager.get_current_schedule())
+
     {:ok, socket}
   end
 

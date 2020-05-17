@@ -14,3 +14,23 @@
 <button phx-click="cancel_all">Cancel All</button>
 <button phx-click="set_to_full">Set to Full</button>
 <button phx-click="run_selected">Run Selected</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Zone</th>
+      <th>State</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for {time, state, zone} <- @schedule do %>
+    <tr>
+      <td><%= zone %></td>
+      <td><%= state %></td>
+      <td><%= time %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+ <%= inspect(@schedule) %>

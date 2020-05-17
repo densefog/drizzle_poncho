@@ -55,6 +55,13 @@ defmodule DrizzleUi.ZoneManager do
     zones |> IO.inspect(label: "Running zones")
   end
 
+  def get_current_schedule() do
+    case Drizzle.TodaysEvents.current_state() do
+      nil -> []
+      state -> state
+    end
+  end
+
   defp find_zone_running(zones) do
     zones
     |> Enum.find(fn {_x, %Zone{minutes: minutes}} -> minutes > 0 end)
