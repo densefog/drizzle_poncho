@@ -9,7 +9,7 @@ use Mix.Config
 config :drizzle_ui, DrizzleUiWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
-  code_reloader: false,
+  code_reloader: true,
   check_origin: false,
   watchers: [
     node: [
@@ -65,3 +65,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :drizzle_ui, drizzle_module: Drizzle.MockInterface

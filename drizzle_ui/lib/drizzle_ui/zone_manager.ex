@@ -14,7 +14,8 @@ defmodule DrizzleUi.ZoneManager do
   """
 
   alias DrizzleUi.Zone
-  alias Drizzle.IO, as: DrizzleIO
+
+  @drizzle_module Application.get_env(:drizzle_ui, :drizzle_module, Drizzle.DrizzleInterface)
 
   @zones 1..7 |> Enum.map(&Integer.to_string/1)
 
@@ -35,7 +36,7 @@ defmodule DrizzleUi.ZoneManager do
 
   def cancel_all(zones) do
     Enum.reduce(zones, %{}, fn {zone_number, %Zone{} = zone}, acc ->
-      DrizzleIO.deactivate_zone(zone.atom)
+      @drizzle_module.deactivate_zone(zone.atom)
 
       Map.put(acc, zone_number, %Zone{zone | minutes: 0})
     end)
@@ -49,14 +50,14 @@ defmodule DrizzleUi.ZoneManager do
 
   def run_selected(zones) do
     with {:ok, %Zone{} = zone} <- find_zone_running(zones) do
-      DrizzleIO.activate_zone_for_time(zone.atom, zone.minutes)
+      @drizzle_module.activate_zone_for_time(zone.atom, zone.minutes)
     end
 
     zones |> IO.inspect(label: "Running zones")
   end
 
   def get_current_schedule() do
-    case Drizzle.TodaysEvents.current_state() do
+    case @drizzle_module.todays_events_current_state() do
       nil -> []
       state -> state
     end

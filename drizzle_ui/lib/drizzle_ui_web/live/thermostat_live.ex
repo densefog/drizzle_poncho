@@ -1,5 +1,5 @@
 defmodule DrizzleUiWeb.ThermostatLive do
-  use Phoenix.LiveView
+  use DrizzleUiWeb, :live_view
 
   alias DrizzleUi.ZoneManager
 

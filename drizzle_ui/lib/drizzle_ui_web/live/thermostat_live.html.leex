@@ -1,5 +1,5 @@
-<h2>Sprinklers</h2>
-<h4>Powered by Raspberry Pi</h4>
+<h2 class="title">Sprinklers</h2>
+<h4 class="subtitle">Powered by Raspberry Pi</h4>
 
 <form phx-change="validate" >
   <%= for {_zone_number, zone} <- @zones do %>
@@ -11,9 +11,9 @@
 <% end %>
 </form>
 
-<button phx-click="cancel_all">Cancel All</button>
-<button phx-click="set_to_full">Set to Full</button>
-<button phx-click="run_selected">Run Selected</button>
+<button class="button" phx-click="cancel_all">Cancel All</button>
+<button class="button" phx-click="set_to_full">Set to Full</button>
+<button class="button" phx-click="run_selected">Run Selected</button>
 
 <table>
   <thead>
